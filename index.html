@@ -16,7 +16,7 @@
     }
 
     body {
-  background: #141313;
+      background: #141313;
       color: rgb(255, 255, 255);
       min-height: 100vh;
       display: flex;
@@ -30,11 +30,11 @@
     }
 
     h1 {
-  font-size: 2.8rem;
-  margin-bottom: 0.5rem;
-  color: #ffffffef;
-  font-family: 'Playfair Display', serif;
-  text-shadow: 0 0 10px #24242400;
+      font-size: 2.8rem;
+      margin-bottom: 0.5rem;
+      color: #ffffffef;
+      font-family: 'Playfair Display', serif;
+      text-shadow: 0 0 10px #24242400;
     }
 
     .subtitle {
@@ -62,10 +62,10 @@
     }
 
     .form-section h2 {
-  font-size: 2rem;
-  margin-bottom: 1.5rem;
-  color: #f1eaea;
-  font-family: 'Playfair Display', serif;
+      font-size: 2rem;
+      margin-bottom: 1.5rem;
+      color: #f1eaea;
+      font-family: 'Playfair Display', serif;
     }
 
     .name-input {
@@ -88,7 +88,7 @@
       align-items: center;
       margin: 12px 0;
       padding: 14px;
-      background: rgba(14, 0, 0, 0)5;
+      background: rgba(14, 0, 0, 0.5);
       border-radius: 10px;
       transition: background 0.3s;
     }
@@ -110,17 +110,16 @@
     }
 
     .service-price {
-  font-weight: bold;
-  color: #faf8f8;
-  font-size: 1.3rem;
+      font-weight: bold;
+      color: #faf8f8;
+      font-size: 1.3rem;
     }
 
-    .whatsapp-btn {
+    .whatsapp-btn,
+    .routes-btn {
       display: block;
       width: 100%;
       text-align: center;
-      background: #0be95d;
-      color: rgb(250, 247, 247);
       padding: 16px;
       border-radius: 50px;
       font-size: 1.3rem;
@@ -131,34 +130,24 @@
       transition: transform 0.3s, box-shadow 0.3s;
     }
 
-    .whatsapp-btn:hover {
+    .whatsapp-btn {
+      background: #0be95d;
+      color: rgb(250, 247, 247);
+    }
+
+    .routes-btn {
+      background: #453bd6;
+      color: rgb(255, 255, 255);
+    }
+
+    .whatsapp-btn:hover,
+    .routes-btn:hover {
       transform: translateY(-4px);
       box-shadow: 0 8px 25px rgba(230, 33, 7, 0.7);
     }
 
     .whatsapp-btn::before {
       content: "💬 ";
-    }
-
-    .routes-btn {
-      display: block;
-      width: 100%;
-      text-align: center;
-      background: #453bd6;
-      color: rgb(255, 255, 255);
-      padding: 16px;
-      border-radius: 50px;
-      font-size: 1.3rem;
-      font-weight: bold;
-      text-decoration: none;
-      margin-top: 1.5rem;
-      box-shadow: 0 6px 20px rgba(255, 255, 255, 0.993);
-      transition: transform 0.3s, box-shadow 0.3s;
-    }
-
-    .routes-btn:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 8px 25px rgba(230, 33, 7, 0.7);
     }
 
     .routes-btn::before {
@@ -199,14 +188,14 @@
     }
 
     .image-app---hero {
-  width: 300px;
-  height: 300px;
-  border-radius: 20px;
-  box-shadow: 0 20px 40px rgba(171, 209, 2, 0.993);
-  object-fit: contain;
-  background: rgb(0, 0, 0);
-  padding: 10px;
-  border: 6px solid #88915500;
+      width: 300px;
+      height: 300px;
+      border-radius: 20px;
+      box-shadow: 0 20px 40px rgba(171, 209, 2, 0.993);
+      object-fit: contain;
+      background: rgb(0, 0, 0);
+      padding: 10px;
+      border: 6px solid transparent;
     }
 
     .app-hero---shadow {
@@ -241,6 +230,23 @@
       box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
     }
 
+    /* Seção do Mapa */
+    .map-section {
+      width: 100%;
+      height: 300px;
+      margin: 0 auto 2rem;
+      max-width: 1400px;
+      border-radius: 15px;
+      overflow: hidden;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    }
+
+    .map-section iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+
     footer {
       text-align: center;
       padding: 1.5rem;
@@ -255,8 +261,12 @@
         padding: 1.5rem;
       }
       .hero-3d-section {
-        order: -1; /* Coloca o 3D no topo em mobile */
+        order: -1;
         min-height: 400px;
+      }
+      .map-section {
+        height: 250px;
+        margin-top: 1rem;
       }
     }
   </style>
@@ -274,21 +284,21 @@
       <input type="text" id="customerName" class="name-input" placeholder="Digite seu nome">
 
       <div class="service-option">
-  <input type="checkbox" id="car" data-price="80" data-name="Lavagem de Carro">
-  <label class="service-label" for="car">Lavagem de Carro a partir de </label>
-  <span class="service-price">R$ 80,00</span>
+        <input type="checkbox" id="car" data-price="80" data-name="Lavagem de Carro">
+        <label class="service-label" for="car">Lavagem de Carro a partir de </label>
+        <span class="service-price">R$ 80,00</span>
       </div>
 
       <div class="service-option">
-  <input type="checkbox" id="motorcycle" data-price="40" data-name="Lavagem de Moto">
-  <label class="service-label" for="motorcycle">Lavagem de Moto a partir de </label>
-  <span class="service-price">R$ 40,00</span>
+        <input type="checkbox" id="motorcycle" data-price="40" data-name="Lavagem de Moto">
+        <label class="service-label" for="motorcycle">Lavagem de Moto a partir de </label>
+        <span class="service-price">R$ 40,00</span>
       </div>
 
       <div class="service-option">
-  <input type="checkbox" id="pickup" data-price="150" data-name="Lavagem de Caminhonete">
-  <label class="service-label" for="pickup">Lavagem de Caminhonete a partir de </label>
-  <span class="service-price">R$ 150,00</span>
+        <input type="checkbox" id="pickup" data-price="150" data-name="Lavagem de Caminhonete">
+        <label class="service-label" for="pickup">Lavagem de Caminhonete a partir de </label>
+        <span class="service-price">R$ 150,00</span>
       </div>
 
       <a href="#" id="whatsappLink" class="whatsapp-btn">
@@ -312,6 +322,19 @@
     </div>
   </div>
 
+  <!-- Mapa centralizado abaixo do layout principal -->
+  <div class="map-section">
+    <iframe 
+      src="https://www.google.com/maps/embed?pb=!3m2!1spt-BR!2sbr!4v1759000582571!5m2!1spt-BR!2sbr!6m8!1m7!1s7at5smcvGBbunjohVScdNA!2m2!1d-23.00787632223383!2d-49.88305004174801!3f44.89083972613969!4f-8.22956311370315!5f0.7820865974627469" 
+      width="100%" 
+      height="100%" 
+      style="border:0;" 
+      allowfullscreen="" 
+      loading="lazy" 
+      referrerpolicy="no-referrer-when-downgrade">
+    </iframe>
+  </div>
+
   <footer>
     <p>© 2025 Rey do Jato - Todos os direitos reservados</p>
     <p>📍 R. Serafim Motta 41</p>
@@ -319,17 +342,6 @@
       Obter Rotas
     </a>
   </footer>
-  <div class="map-section">
-        <iframe 
-          src="https://www.google.com/maps/embed?pb=!3m2!1spt-BR!2sbr!4v1759000582571!5m2!1spt-BR!2sbr!6m8!1m7!1s7at5smcvGBbunjohVScdNA!2m2!1d-23.00787632223383!2d-49.88305004174801!3f44.89083972613969!4f-8.22956311370315!5f0.7820865974627469" 
-          width="100%" 
-          height="100%" 
-          style="border:0;" 
-          allowfullscreen="" 
-          loading="lazy" 
-          referrerpolicy="no-referrer-when-downgrade">
-        </iframe>
-      </div>
 
   <!-- Efeito 3D com mousemove -->
   <script>
@@ -373,11 +385,10 @@
 
       const message = `Olá! Meu nome é ${name} e gostaria de agendar o serviço de *${serviceName}* no valor de R$ ${servicePrice},00.`;
       const encodedMessage = encodeURIComponent(message);
-      const phoneNumber = "5514998500688"; // ✅ Seu número do WhatsApp
+      const phoneNumber = "5514998500688";
 
       window.open(`https://wa.me/${phoneNumber}?text=${encodedMessage}`, '_blank');
     });
-      
   </script>
 </body>
 </html>
