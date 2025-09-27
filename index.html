@@ -4,7 +4,6 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Rey do Jato - Lava Rápido Premium</title>
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🏎️</text></svg>">
   <meta name="description" content="Agende seu horário no melhor lava rápido da região!">
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
   
@@ -17,7 +16,7 @@
     }
 
     body {
-      background: #141313;
+  background: #141313;
       color: rgb(255, 255, 255);
       min-height: 100vh;
       display: flex;
@@ -31,11 +30,11 @@
     }
 
     h1 {
-      font-size: 2.8rem;
-      margin-bottom: 0.5rem;
-      color: #ffffffef;
-      font-family: 'Playfair Display', serif;
-      text-shadow: 0 0 10px #24242400;
+  font-size: 2.8rem;
+  margin-bottom: 0.5rem;
+  color: #ffffffef;
+  font-family: 'Playfair Display', serif;
+  text-shadow: 0 0 10px #24242400;
     }
 
     .subtitle {
@@ -63,10 +62,10 @@
     }
 
     .form-section h2 {
-      font-size: 2rem;
-      margin-bottom: 1.5rem;
-      color: #ffffff;
-      font-family: 'Playfair Display', serif;
+  font-size: 2rem;
+  margin-bottom: 1.5rem;
+  color: #f1eaea;
+  font-family: 'Playfair Display', serif;
     }
 
     .name-input {
@@ -75,13 +74,13 @@
       margin-bottom: 1.5rem;
       border-radius: 10px;
       border: none;
-      background: rgb(0, 0, 0);
-      color: rgb(250, 248, 248);
+      background: rgba(3, 3, 3, 0);
+      color: white;
       font-size: 1.1rem;
     }
 
     .name-input::placeholder {
-      color: #ffffffe7;
+      color: #f8f6f6;
     }
 
     .service-option {
@@ -89,20 +88,20 @@
       align-items: center;
       margin: 12px 0;
       padding: 14px;
-      background: rgba(44, 41, 41, 0.5);
+      background: rgba(14, 0, 0, 0)5);
       border-radius: 10px;
       transition: background 0.3s;
     }
 
     .service-option:hover {
-      background: rgba(255, 252, 252, 0) 93);
+      background: rgba(0, 50, 80, 0.7);
     }
 
     .service-option input[type="checkbox"] {
       width: 22px;
       height: 22px;
       margin-right: 14px;
-      accent-color: #080808;
+      accent-color: #f7f7f7;
     }
 
     .service-label {
@@ -111,16 +110,17 @@
     }
 
     .service-price {
-      font-weight: bold;
-      color: #faf8f8;
-      font-size: 1.3rem;
+  font-weight: bold;
+  color: #faf8f8;
+  font-size: 1.3rem;
     }
 
-    .whatsapp-btn,
-    .routes-btn {
+    .whatsapp-btn {
       display: block;
       width: 100%;
       text-align: center;
+      background: #0be95d;
+      color: rgb(250, 247, 247);
       padding: 16px;
       border-radius: 50px;
       font-size: 1.3rem;
@@ -131,28 +131,13 @@
       transition: transform 0.3s, box-shadow 0.3s;
     }
 
-    .whatsapp-btn {
-      background: #0be95d;
-      color: rgb(250, 247, 247);
-    }
-
-    .routes-btn {
-      background: #4285f4;
-      color: white;
-    }
-
-    .whatsapp-btn:hover,
-    .routes-btn:hover {
+    .whatsapp-btn:hover {
       transform: translateY(-4px);
-      box-shadow: 0 8px 25px rgb(255, 0, 0).7);
+      box-shadow: 0 8px 25px rgba(230, 33, 7, 0.7);
     }
 
     .whatsapp-btn::before {
       content: "💬 ";
-    }
-
-    .routes-btn::before {
-      content: "📍 ";
     }
 
     /* Seção 3D */
@@ -189,14 +174,14 @@
     }
 
     .image-app---hero {
-      width: 300px;
-      height: 300px;
-      border-radius: 20px;
-      box-shadow: 0 20px 40px rgba(171, 209, 2, 0.993);
-      object-fit: contain;
-      background: rgb(0, 0, 0);
-      padding: 10px;
-      border: 6px solid #88915500;
+  width: 300px;
+  height: 300px;
+  border-radius: 20px;
+  box-shadow: 0 20px 40px rgba(171, 209, 2, 0.993);
+  object-fit: contain;
+  background: rgb(0, 0, 0);
+  padding: 10px;
+  border: 6px solid #88915500;
     }
 
     .app-hero---shadow {
@@ -231,22 +216,6 @@
       box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
     }
 
-    /* Seção do Mapa */
-    .map-section {
-      width: 100%;
-      height: 300px;
-      margin-top: 2rem;
-      border-radius: 15px;
-      overflow: hidden;
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
-    }
-
-    .map-section iframe {
-      width: 100%;
-      height: 100%;
-      border: none;
-    }
-
     footer {
       text-align: center;
       padding: 1.5rem;
@@ -264,9 +233,6 @@
         order: -1; /* Coloca o 3D no topo em mobile */
         min-height: 400px;
       }
-      .map-section {
-        height: 250px;
-      }
     }
   </style>
 </head>
@@ -283,44 +249,26 @@
       <input type="text" id="customerName" class="name-input" placeholder="Digite seu nome">
 
       <div class="service-option">
-        <input type="checkbox" id="car" data-price="80" data-name="Lavagem de Carro">
-        <label class="service-label" for="car">Lavagem de Carro Apartir de: </label>
-        <span class="service-price">R$ 80,00</span>
+  <input type="checkbox" id="car" data-price="80" data-name="Lavagem de Carro">
+  <label class="service-label" for="car">Lavagem de Carro</label>
+  <span class="service-price">R$ 80,00</span>
       </div>
 
       <div class="service-option">
-        <input type="checkbox" id="motorcycle" data-price="40" data-name="Lavagem de Moto">
-        <label class="service-label" for="motorcycle">Lavagem de Moto Apartir de: </label>
-        <span class="service-price">R$ 40,00</span>
+  <input type="checkbox" id="motorcycle" data-price="40" data-name="Lavagem de Moto">
+  <label class="service-label" for="motorcycle">Lavagem de Moto</label>
+  <span class="service-price">R$ 40,00</span>
       </div>
 
       <div class="service-option">
-        <input type="checkbox" id="pickup" data-price="150" data-name="Lavagem de Caminhonete">
-        <label class="service-label" for="pickup">Lavagem de Caminhonete Apartir de: </label>
-        <span class="service-price">R$ 150,00</span>
+  <input type="checkbox" id="pickup" data-price="150" data-name="Lavagem de Caminhonete">
+  <label class="service-label" for="pickup">Lavagem de Caminhonete</label>
+  <span class="service-price">R$ 150,00</span>
       </div>
 
       <a href="#" id="whatsappLink" class="whatsapp-btn">
         Agendar pelo WhatsApp
       </a>
-
-      <!-- Botão para obter rotas -->
-      <a href="https://maps.app.goo.gl/EashzEcMuBfaCyiS6" target="_blank" class="routes-btn">
-        Obter Rotas
-      </a>
-
-      <!-- Mapa com o iframe correto -->
-      <div class="map-section">
-        <iframe 
-          src="https://www.google.com/maps/embed?pb=!3m2!1spt-BR!2sbr!4v1759000582571!5m2!1spt-BR!2sbr!6m8!1m7!1s7at5smcvGBbunjohVScdNA!2m2!1d-23.00787632223383!2d-49.88305004174801!3f44.89083972613969!4f-8.22956311370315!5f0.7820865974627469" 
-          width="100%" 
-          height="100%" 
-          style="border:0;" 
-          allowfullscreen="" 
-          loading="lazy" 
-          referrerpolicy="no-referrer-when-downgrade">
-        </iframe>
-      </div>
     </div>
 
     <!-- LADO DIREITO: Efeito 3D -->
@@ -341,7 +289,7 @@
 
   <footer>
     <p>© 2025 Rey do Jato - Todos os direitos reservados</p>
-    <p>📍 R. Serafim Motta 41</p>
+    <p>📍 R. Serafim Motta 263</p>
   </footer>
 
   <!-- Efeito 3D com mousemove -->
@@ -384,7 +332,7 @@
       const serviceName = service.dataset.name;
       const servicePrice = service.dataset.price;
 
-      const message = `Olá! Meu nome é ${name} e gostaria de agendar o serviço de *${serviceName}*`;
+      const message = `Olá! Meu nome é ${name} e gostaria de agendar o serviço de *${serviceName}* no valor de R$ ${servicePrice},00.`;
       const encodedMessage = encodeURIComponent(message);
       const phoneNumber = "5514998500688"; // ✅ Seu número do WhatsApp
 
