@@ -115,12 +115,11 @@
       font-size: 1.3rem;
     }
 
-    .whatsapp-btn {
+    .whatsapp-btn,
+    .routes-btn {
       display: block;
       width: 100%;
       text-align: center;
-      background: #0be95d;
-      color: rgb(250, 247, 247);
       padding: 16px;
       border-radius: 50px;
       font-size: 1.3rem;
@@ -131,13 +130,28 @@
       transition: transform 0.3s, box-shadow 0.3s;
     }
 
-    .whatsapp-btn:hover {
+    .whatsapp-btn {
+      background: #0be95d;
+      color: rgb(250, 247, 247);
+    }
+
+    .routes-btn {
+      background: #4285f4;
+      color: white;
+    }
+
+    .whatsapp-btn:hover,
+    .routes-btn:hover {
       transform: translateY(-4px);
       box-shadow: 0 8px 25px rgba(230, 33, 7, 0.7);
     }
 
     .whatsapp-btn::before {
       content: "💬 ";
+    }
+
+    .routes-btn::before {
+      content: "📍 ";
     }
 
     /* Seção 3D */
@@ -287,6 +301,11 @@
 
       <a href="#" id="whatsappLink" class="whatsapp-btn">
         Agendar pelo WhatsApp
+      </a>
+
+      <!-- Botão para obter rotas -->
+      <a href="https://maps.app.goo.gl/EashzEcMuBfaCyiS6" target="_blank" class="routes-btn">
+        Obter Rotas
       </a>
 
       <!-- Mapa com o iframe correto -->
