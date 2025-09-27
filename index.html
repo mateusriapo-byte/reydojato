@@ -1,1 +1,383 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Rey do Jato - Lava Rápido Premium</title>
+  <meta name="description" content="Agende seu horário no melhor lava rápido da região!">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+  
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
 
+    body {
+  background: #141313;
+      color: rgb(255, 255, 255);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    header {
+      text-align: center;
+      padding: 1.5rem;
+      background: rgba(20, 19, 19, 0.6);
+    }
+
+    h1 {
+  font-size: 2.8rem;
+  margin-bottom: 0.5rem;
+  color: #ffffffef;
+  font-family: 'Playfair Display', serif;
+  text-shadow: 0 0 10px #24242400;
+    }
+
+    .subtitle {
+      font-size: 1.1rem;
+      opacity: 0.9;
+    }
+
+    /* Layout principal: esquerda = formulário, direita = 3D */
+    .main-layout {
+      display: flex;
+      flex: 1;
+      padding: 2rem;
+      gap: 2rem;
+      max-width: 1400px;
+      margin: 0 auto;
+      width: 100%;
+    }
+
+    .form-section {
+      flex: 1;
+      min-width: 320px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .form-section h2 {
+  font-size: 2rem;
+  margin-bottom: 1.5rem;
+  color: #f1eaea;
+  font-family: 'Playfair Display', serif;
+    }
+
+    .name-input {
+      width: 100%;
+      padding: 14px;
+      margin-bottom: 1.5rem;
+      border-radius: 10px;
+      border: none;
+      background: rgba(3, 3, 3, 0);
+      color: white;
+      font-size: 1.1rem;
+    }
+
+    .name-input::placeholder {
+      color: #f8f6f6;
+    }
+
+    .service-option {
+      display: flex;
+      align-items: center;
+      margin: 12px 0;
+      padding: 14px;
+      background: rgba(14, 0, 0, 0)5;
+      border-radius: 10px;
+      transition: background 0.3s;
+    }
+
+    .service-option:hover {
+      background: rgba(0, 50, 80, 0.7);
+    }
+
+    .service-option input[type="checkbox"] {
+      width: 22px;
+      height: 22px;
+      margin-right: 14px;
+      accent-color: #f7f7f7;
+    }
+
+    .service-label {
+      flex: 1;
+      font-size: 1.2rem;
+    }
+
+    .service-price {
+  font-weight: bold;
+  color: #faf8f8;
+  font-size: 1.3rem;
+    }
+
+    .whatsapp-btn {
+      display: block;
+      width: 100%;
+      text-align: center;
+      background: #0be95d;
+      color: rgb(250, 247, 247);
+      padding: 16px;
+      border-radius: 50px;
+      font-size: 1.3rem;
+      font-weight: bold;
+      text-decoration: none;
+      margin-top: 1.5rem;
+      box-shadow: 0 6px 20px rgba(255, 255, 255, 0.993);
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    .whatsapp-btn:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 8px 25px rgba(230, 33, 7, 0.7);
+    }
+
+    .whatsapp-btn::before {
+      content: "💬 ";
+    }
+
+    .routes-btn {
+      display: block;
+      width: 100%;
+      text-align: center;
+      background: #453bd6;
+      color: rgb(255, 255, 255);
+      padding: 16px;
+      border-radius: 50px;
+      font-size: 1.3rem;
+      font-weight: bold;
+      text-decoration: none;
+      margin-top: 1.5rem;
+      box-shadow: 0 6px 20px rgba(255, 255, 255, 0.993);
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    .routes-btn:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 8px 25px rgba(230, 33, 7, 0.7);
+    }
+
+    .routes-btn::before {
+      content: "🗺️ ";
+    }
+
+    /* Seção 3D */
+    .hero-3d-section {
+      flex: 1;
+      min-width: 350px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+    }
+
+    .app-hero {
+      position: relative;
+      width: 100%;
+      max-width: 500px;
+      height: 500px;
+      perspective: 1000px;
+    }
+
+    .app-hero---wrapper {
+      width: 100%;
+      height: 100%;
+      transform-style: preserve-3d;
+      will-change: transform;
+    }
+
+    .app-hero---content-1 {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%) rotateX(18deg) rotateY(-18deg) rotateZ(18deg);
+      z-index: 3;
+    }
+
+    .image-app---hero {
+  width: 300px;
+  height: 300px;
+  border-radius: 20px;
+  box-shadow: 0 20px 40px rgba(171, 209, 2, 0.993);
+  object-fit: contain;
+  background: rgb(0, 0, 0);
+  padding: 10px;
+  border: 6px solid #88915500;
+    }
+
+    .app-hero---shadow {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.2);
+      border-radius: 20px;
+      filter: blur(20px);
+      transform: translateY(20px) scale(0.95);
+      z-index: -1;
+    }
+
+    .app-hero---content-3 {
+      position: absolute;
+      top: 50%;
+      right: 20%;
+      transform: translate(-50%, -50%) translateY(-2em) translateZ(-240px) rotateX(18deg) rotateY(-18deg) rotateZ(18deg);
+      z-index: 1;
+      width: 180px;
+      height: 180px;
+      background: linear-gradient(45deg, #ff6b6b, #4ecdc4);
+      border-radius: 15px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-weight: bold;
+      font-size: 18px;
+      text-align: center;
+      padding: 15px;
+      box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+    }
+
+    footer {
+      text-align: center;
+      padding: 1.5rem;
+      background: rgba(0, 0, 0, 0.4);
+      font-size: 0.95rem;
+      color: #bbb;
+    }
+
+    @media (max-width: 900px) {
+      .main-layout {
+        flex-direction: column;
+        padding: 1.5rem;
+      }
+      .hero-3d-section {
+        order: -1; /* Coloca o 3D no topo em mobile */
+        min-height: 400px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Rey do Jato</h1>
+    <p class="subtitle">Lava Rápido Premium com tecnologia de ponta e atendimento personalizado!</p>
+  </header>
+
+  <div class="main-layout">
+    <!-- LADO ESQUERDO: Formulário -->
+    <div class="form-section">
+      <h2>Agende seu Horário</h2>
+      <input type="text" id="customerName" class="name-input" placeholder="Digite seu nome">
+
+      <div class="service-option">
+  <input type="checkbox" id="car" data-price="80" data-name="Lavagem de Carro">
+  <label class="service-label" for="car">Lavagem de Carro a partir de </label>
+  <span class="service-price">R$ 80,00</span>
+      </div>
+
+      <div class="service-option">
+  <input type="checkbox" id="motorcycle" data-price="40" data-name="Lavagem de Moto">
+  <label class="service-label" for="motorcycle">Lavagem de Moto a partir de </label>
+  <span class="service-price">R$ 40,00</span>
+      </div>
+
+      <div class="service-option">
+  <input type="checkbox" id="pickup" data-price="150" data-name="Lavagem de Caminhonete">
+  <label class="service-label" for="pickup">Lavagem de Caminhonete a partir de </label>
+  <span class="service-price">R$ 150,00</span>
+      </div>
+
+      <a href="#" id="whatsappLink" class="whatsapp-btn">
+        Agendar pelo WhatsApp
+      </a>
+    </div>
+
+    <!-- LADO DIREITO: Efeito 3D -->
+    <div class="hero-3d-section">
+      <div class="app-hero">
+        <div class="app-hero---wrapper">
+          <div class="app-hero---content-1">
+            <img src="logo.jpg" alt="Rey do Jato" class="image-app---hero">
+            <div class="app-hero---shadow"></div>
+          </div>
+          <div class="app-hero---content-3">
+            Rey do Jato
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <p>© 2025 Rey do Jato - Todos os direitos reservados</p>
+    <p>📍 R. Serafim Motta 41</p>
+    <a href="https://maps.app.goo.gl/EashzEcMuBfaCyiS6" target="_blank" class="routes-btn">
+      Obter Rotas
+    </a>
+  </footer>
+  <div class="map-section">
+        <iframe 
+          src="https://www.google.com/maps/embed?pb=!3m2!1spt-BR!2sbr!4v1759000582571!5m2!1spt-BR!2sbr!6m8!1m7!1s7at5smcvGBbunjohVScdNA!2m2!1d-23.00787632223383!2d-49.88305004174801!3f44.89083972613969!4f-8.22956311370315!5f0.7820865974627469" 
+          width="100%" 
+          height="100%" 
+          style="border:0;" 
+          allowfullscreen="" 
+          loading="lazy" 
+          referrerpolicy="no-referrer-when-downgrade">
+        </iframe>
+      </div>
+
+  <!-- Efeito 3D com mousemove -->
+  <script>
+    document.addEventListener('mousemove', function(e) {
+      const wrapper = document.querySelector('.app-hero---wrapper');
+      const content1 = document.querySelector('.app-hero---content-1');
+      const content3 = document.querySelector('.app-hero---content-3');
+      
+      const xAxis = (window.innerWidth / 2 - e.pageX) / 25;
+      const yAxis = (window.innerHeight / 2 - e.pageY) / 25;
+      
+      wrapper.style.transform = `rotateX(${yAxis * 0.1}deg) rotateY(${xAxis * 0.1}deg)`;
+      
+      content1.style.transform = `translate(-50%, -50%) rotateX(${18 + yAxis * 0.05}deg) rotateY(${-18 + xAxis * 0.05}deg) rotateZ(18deg)`;
+      content3.style.transform = `translate(-50%, -50%) translateY(-2em) translateZ(-240px) rotateX(${18 + yAxis * 0.05}deg) rotateY(${-18 + xAxis * 0.05}deg) rotateZ(18deg)`;
+    });
+  </script>
+
+  <!-- Lógica do WhatsApp -->
+  <script>
+    document.getElementById('whatsappLink').addEventListener('click', function(e) {
+      e.preventDefault();
+
+      const name = document.getElementById('customerName').value.trim();
+      const checkboxes = document.querySelectorAll('input[type="checkbox"]:checked');
+      
+      if (!name) {
+        alert('Por favor, digite seu nome.');
+        return;
+      }
+
+      if (checkboxes.length === 0) {
+        alert('Por favor, selecione um serviço.');
+        return;
+      }
+
+      // Pega o primeiro selecionado (ou você pode adaptar para múltiplos)
+      const service = checkboxes[0];
+      const serviceName = service.dataset.name;
+      const servicePrice = service.dataset.price;
+
+      const message = `Olá! Meu nome é ${name} e gostaria de agendar o serviço de *${serviceName}* no valor de R$ ${servicePrice},00.`;
+      const encodedMessage = encodeURIComponent(message);
+      const phoneNumber = "5514998500688"; // ✅ Seu número do WhatsApp
+
+      window.open(`https://wa.me/${phoneNumber}?text=${encodedMessage}`, '_blank');
+    });
+      
+  </script>
+</body>
+</html>
