@@ -250,19 +250,19 @@
 
       <div class="service-option">
   <input type="checkbox" id="car" data-price="80" data-name="Lavagem de Carro">
-  <label class="service-label" for="car">Lavagem de Carro</label>
+  <label class="service-label" for="car">Lavagem de Carro Apartir de: </label>
   <span class="service-price">R$ 80,00</span>
       </div>
 
       <div class="service-option">
   <input type="checkbox" id="motorcycle" data-price="40" data-name="Lavagem de Moto">
-  <label class="service-label" for="motorcycle">Lavagem de Moto</label>
+  <label class="service-label" for="motorcycle">Lavagem de Moto Apartir de: </label>
   <span class="service-price">R$ 40,00</span>
       </div>
 
       <div class="service-option">
   <input type="checkbox" id="pickup" data-price="150" data-name="Lavagem de Caminhonete">
-  <label class="service-label" for="pickup">Lavagem de Caminhonete</label>
+  <label class="service-label" for="pickup">Lavagem de Caminhonete Apartir de: </label>
   <span class="service-price">R$ 150,00</span>
       </div>
 
@@ -332,7 +332,7 @@
       const serviceName = service.dataset.name;
       const servicePrice = service.dataset.price;
 
-      const message = `Olá! Meu nome é ${name} e gostaria de agendar o serviço de *${serviceName}* no valor de R$ ${servicePrice},00.`;
+      const message = `Olá! Meu nome é ${name} e gostaria de agendar o serviço de *${serviceName}*`;
       const encodedMessage = encodeURIComponent(message);
       const phoneNumber = "5514998500688"; // ✅ Seu número do WhatsApp
 
@@ -341,3 +341,4 @@
   </script>
 </body>
 </html>
+
