@@ -42,7 +42,6 @@
       opacity: 0.9;
     }
 
-    /* Layout principal: esquerda = formulário, direita = 3D */
     .main-layout {
       display: flex;
       flex: 1;
@@ -88,31 +87,42 @@
       align-items: center;
       margin: 12px 0;
       padding: 14px;
-      background: rgba(14, 0, 0, 0.5);
+      background: rgba(40, 40, 40, 0.7); /* Fundo mais claro que antes */
       border-radius: 10px;
       transition: background 0.3s;
+      cursor: pointer;
+    }
+
+    /* Ao marcar o checkbox, fundo preto sólido */
+    .service-option:has(input[type="checkbox"]:checked) {
+      background: #000 !important;
+      color: white;
     }
 
     .service-option:hover {
-      background: rgba(0, 50, 80, 0.7);
+      background: rgba(60, 90, 120, 0.8);
     }
 
     .service-option input[type="checkbox"] {
       width: 22px;
       height: 22px;
       margin-right: 14px;
-      accent-color: #f7f7f7;
+      accent-color: #0be95d;
+      cursor: pointer;
     }
 
     .service-label {
       flex: 1;
       font-size: 1.2rem;
+      color: #fff;
+      user-select: none;
     }
 
     .service-price {
       font-weight: bold;
-      color: #faf8f8;
+      color: #0be95d;
       font-size: 1.3rem;
+      white-space: nowrap;
     }
 
     .whatsapp-btn,
@@ -132,7 +142,7 @@
 
     .whatsapp-btn {
       background: #0be95d;
-      color: rgb(250, 247, 247);
+      color: #000;
     }
 
     .routes-btn {
@@ -154,7 +164,21 @@
       content: "🗺️ ";
     }
 
-    /* Seção 3D */
+    .map-section {
+      width: 100%;
+      height: 300px;
+      margin-top: 2rem;
+      border-radius: 15px;
+      overflow: hidden;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    }
+
+    .map-section iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+
     .hero-3d-section {
       flex: 1;
       min-width: 350px;
@@ -230,23 +254,6 @@
       box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
     }
 
-    /* Seção do Mapa */
-    .map-section {
-      width: 100%;
-      height: 300px;
-      margin: 0 auto 2rem;
-      max-width: 1400px;
-      border-radius: 15px;
-      overflow: hidden;
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
-    }
-
-    .map-section iframe {
-      width: 100%;
-      height: 100%;
-      border: none;
-    }
-
     footer {
       text-align: center;
       padding: 1.5rem;
@@ -266,7 +273,15 @@
       }
       .map-section {
         height: 250px;
-        margin-top: 1rem;
+        margin-top: 1.5rem;
+      }
+      /* Garantir boa visibilidade em mobile */
+      .service-option {
+        background: rgba(45, 45, 45, 0.85);
+        padding: 16px;
+      }
+      .service-option:has(input[type="checkbox"]:checked) {
+        background: #000;
       }
     }
   </style>
@@ -278,38 +293,50 @@
   </header>
 
   <div class="main-layout">
-    <!-- LADO ESQUERDO: Formulário -->
     <div class="form-section">
       <h2>Agende seu Horário</h2>
       <input type="text" id="customerName" class="name-input" placeholder="Digite seu nome">
 
-      <div class="service-option">
+      <!-- Corrigido: label envolve todo o conteúdo clicável -->
+      <label class="service-option">
         <input type="checkbox" id="car" data-price="80" data-name="Lavagem de Carro">
-        <label class="service-label" for="car">Lavagem de Carro a partir de </label>
+        <span class="service-label">Lavagem de Carro a partir de</span>
         <span class="service-price">R$ 80,00</span>
-      </div>
+      </label>
 
-      <div class="service-option">
+      <label class="service-option">
         <input type="checkbox" id="motorcycle" data-price="40" data-name="Lavagem de Moto">
-        <label class="service-label" for="motorcycle">Lavagem de Moto a partir de </label>
+        <span class="service-label">Lavagem de Moto a partir de</span>
         <span class="service-price">R$ 40,00</span>
-      </div>
+      </label>
 
-      <div class="service-option">
+      <label class="service-option">
         <input type="checkbox" id="pickup" data-price="150" data-name="Lavagem de Caminhonete">
-        <label class="service-label" for="pickup">Lavagem de Caminhonete a partir de </label>
+        <span class="service-label">Lavagem de Caminhonete a partir de</span>
         <span class="service-price">R$ 150,00</span>
-      </div>
+      </label>
 
       <a href="#" id="whatsappLink" class="whatsapp-btn">
         Agendar pelo WhatsApp
       </a>
+
       <a href="https://maps.app.goo.gl/EashzEcMuBfaCyiS6" target="_blank" class="routes-btn">
         Obter Rotas
       </a>
+
+      <div class="map-section">
+        <iframe 
+          src="https://www.google.com/maps/embed?pb=!3m2!1spt-BR!2sbr!4v1759000582571!5m2!1spt-BR!2sbr!6m8!1m7!1s7at5smcvGBbunjohVScdNA!2m2!1d-23.00787632223383!2d-49.88305004174801!3f44.89083972613969!4f-8.22956311370315!5f0.7820865974627469" 
+          width="100%" 
+          height="100%" 
+          style="border:0;" 
+          allowfullscreen="" 
+          loading="lazy" 
+          referrerpolicy="no-referrer-when-downgrade">
+        </iframe>
+      </div>
     </div>
 
-    <!-- LADO DIREITO: Efeito 3D -->
     <div class="hero-3d-section">
       <div class="app-hero">
         <div class="app-hero---wrapper">
@@ -325,25 +352,11 @@
     </div>
   </div>
 
-  <!-- Mapa centralizado abaixo do layout principal -->
-  <div class="map-section">
-    <iframe 
-      src="https://www.google.com/maps/embed?pb=!3m2!1spt-BR!2sbr!4v1759000582571!5m2!1spt-BR!2sbr!6m8!1m7!1s7at5smcvGBbunjohVScdNA!2m2!1d-23.00787632223383!2d-49.88305004174801!3f44.89083972613969!4f-8.22956311370315!5f0.7820865974627469" 
-      width="100%" 
-      height="100%" 
-      style="border:0;" 
-      allowfullscreen="" 
-      loading="lazy" 
-      referrerpolicy="no-referrer-when-downgrade">
-    </iframe>
-  </div>
-
   <footer>
     <p>© 2025 Rey do Jato - Todos os direitos reservados</p>
     <p>📍 R. Serafim Motta 41</p>
   </footer>
 
-  <!-- Efeito 3D com mousemove -->
   <script>
     document.addEventListener('mousemove', function(e) {
       const wrapper = document.querySelector('.app-hero---wrapper');
@@ -360,7 +373,6 @@
     });
   </script>
 
-  <!-- Lógica do WhatsApp -->
   <script>
     document.getElementById('whatsappLink').addEventListener('click', function(e) {
       e.preventDefault();
@@ -378,7 +390,6 @@
         return;
       }
 
-      // Pega o primeiro selecionado (ou você pode adaptar para múltiplos)
       const service = checkboxes[0];
       const serviceName = service.dataset.name;
       const servicePrice = service.dataset.price;
