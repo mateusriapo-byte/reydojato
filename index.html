@@ -301,19 +301,19 @@
       <!-- Corrigido: label envolve todo o conteúdo clicável -->
       <label class="service-option">
         <input type="checkbox" id="car" data-price="80" data-name="Lavagem de Carro">
-        <span class="service-label">Lavagem de Carro a partir de</span>
+        <span class="service-label">Lavagem de Carro a partir de: </span>
         <span class="service-price">R$ 80,00</span>
       </label>
 
       <label class="service-option">
         <input type="checkbox" id="motorcycle" data-price="40" data-name="Lavagem de Moto">
-        <span class="service-label">Lavagem de Moto a partir de</span>
+        <span class="service-label">Lavagem de Moto a partir de: </span>
         <span class="service-price">R$ 40,00</span>
       </label>
 
       <label class="service-option">
         <input type="checkbox" id="pickup" data-price="150" data-name="Lavagem de Caminhonete">
-        <span class="service-label">Lavagem de Caminhonete a partir de</span>
+        <span class="service-label">Lavagem de Caminhonete a partir de: </span>
         <span class="service-price">R$ 150,00</span>
       </label>
 
@@ -395,7 +395,7 @@
       const serviceName = service.dataset.name;
       const servicePrice = service.dataset.price;
 
-      const message = `Olá! Meu nome é ${name} e gostaria de agendar o serviço de *${serviceName}* no valor de R$ ${servicePrice},00.`;
+      const message = `Olá! Meu nome é ${name} e gostaria de agendar o serviço de *${serviceName}*.`;
       const encodedMessage = encodeURIComponent(message);
       const phoneNumber = "5514998500688";
 
